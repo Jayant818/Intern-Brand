@@ -1,11 +1,15 @@
 export default function JobListing(props) {
 	const data = props.data;
+	const handleClick = (name) => {
+		props.handleChange(name);
+	};
 	return (
 		<div className="flex flex-col space-y-6 mt-4 ">
 			{Object.values(data).map((job) => (
 				<div
 					key={job.Name}
-					className="w-[370px] bg-white text-black p-6 space-y-2 rounded-lg"
+					className="w-[370px] bg-white cursor-pointer  text-black p-6 space-y-2 rounded-lg"
+					onClick={() => handleClick(job.Name)}
 				>
 					<div className="flex justify-between items-center">
 						<div>
